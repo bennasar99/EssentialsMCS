@@ -1,4 +1,4 @@
-function EsHandleHeal( Split, Player )
+function EsHandleHealCommand( Split, Player )
 	local HealPlayer = function(OtherPlayer)
 		if (OtherPlayer:GetName() == Split[2]) then
 			OtherPlayer:Heal(20-OtherPlayer:GetHealth())

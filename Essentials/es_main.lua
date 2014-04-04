@@ -9,7 +9,8 @@ function Initialize(Plugin)
 	PLUGIN = Plugin -- NOTE: only needed if you want OnDisable() to use GetName() or something like that
 	
 	-- Command Bindings
-	cPluginManager.BindCommand("/heal", "es.heal", EsHandleHeal, " ~ Heals a player")
+	cPluginManager.BindCommand("/heal", "es.heal", EsHandleHealCommand, " ~ Heals a player")
+	cPluginManager.BindCommand("/fly", "es.fly", EsHandleFlyCommand, " ~ allows/disallow a player to fly")
     
 	LOG("Initialised " .. Plugin:GetName() .. " v." .. Plugin:GetVersion())
 	return true
