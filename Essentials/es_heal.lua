@@ -8,7 +8,7 @@ function EsHandleHealCommand( Split, Player )
                 return true
             else
                 Player:SendMessageSuccess( "You healed " .. Split[2])
-                OtherPlayer:SendMessageSuccess( Player:GetName() .. " healed you" )
+                OtherPlayer:SendMessageSuccess( "You got healed!" )
                 return true
             end
 		end
@@ -18,7 +18,7 @@ function EsHandleHealCommand( Split, Player )
             cRoot:Get():FindAndDoWithPlayer(Split[2], HealPlayer);
             foundplayer = true
         else
-            Player:SendMessageFailure("You dont\´t have the permission to do that")
+            Player:SendMessageFailure("You dont\´t have the permission to do that!")
         end
     else
         Player:Heal(20-Player:GetHealth())
