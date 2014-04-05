@@ -1,5 +1,5 @@
 function EsHandleFlyCommand( Split, Player )
-	local HealPlayer = function(OtherPlayer)
+	local PlayerFly = function(OtherPlayer)
 		if (OtherPlayer:GetName() == Split[2]) then
             if not(OtherPlayer:CanFly())then
                 OtherPlayer:SetCanFly(true)
@@ -37,7 +37,7 @@ function EsHandleFlyCommand( Split, Player )
         return true;
     else
         if Player:HasPermission("es.heal.other") then
-        cRoot:Get():FindAndDoWithPlayer(Split[2], HealPlayer);
+        cRoot:Get():FindAndDoWithPlayer(Split[2], PlayerFly);
         return true;
         else
             Player:SendMessageFailure("You dont\´t have the permission to do that!")
