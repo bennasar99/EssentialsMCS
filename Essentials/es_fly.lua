@@ -45,3 +45,32 @@ function EsHandleFlyCommand( Split, Player )
     end
     return true
 end
+
+function EsHandleFlyspeedCommand( Split, Player )
+	local PlayerFlyspeed = function(OtherPlayer)
+        OtherPlayer:SetFlyingMaxSpeed(Split[3])
+        if(OtherPlyer:GetName() == Player:GetName()) then
+            Player:SendMessageSuccess("Your max fly speed is now " .. Split[3])
+        else
+            Player:SendMessageSuccess( OtherPlyer:GetName() .. "\' max fly speed is now " .. Split[3])
+            OtherPlyer:SendMessageSuccess("Your max fly speed is now " .. Split[3])
+        end
+        if not(foundplayer) then
+            Player:SendMessageFailure( "Player not found!" )
+            return true
+        end
+    end
+    if((Split[3] ~= nil)) then
+        if Player:HasPermission("es.speed.fly.other") then
+        cRoot:Get():FindAndDoWithPlayer(Split[2], PlayerFlyspeed);
+        return true;
+        else
+            Player:SendMessageFailure("You dont\´t have the permission to do that!")
+        return true;
+        end
+    elseif((Split[2] ~= nil)) then
+            Player:SetFlyingMaxSpeed(Split[2])
+            Player:SendMessageSuccess("Your max fly speed is now " .. Split[2])
+    end
+    return true
+end
