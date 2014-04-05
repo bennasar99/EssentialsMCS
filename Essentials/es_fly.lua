@@ -1,21 +1,25 @@
 function EsHandleFlyCommand( Split, Player )
 	local PlayerFly = function(OtherPlayer)
 		if (OtherPlayer:GetName() == Split[2]) then
+            if(Player:HasPermission("es.feed.other")) then
             if not(OtherPlayer:CanFly())then
-                OtherPlayer:SetCanFly(true)
-                if not(OtherPlayer:GetName() == Player:GetName()) then
-                Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can fly now" )
+                    OtherPlayer:SetCanFly(true)
+                    if not(OtherPlayer:GetName() == Player:GetName()) then
+                        Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can fly now" )
+                    end
+                    OtherPlayer:SendMessageSuccess( "You can fly now" )
+                    return true;
+                else
+                    OtherPlayer:SetCanFly(false)
+                    OtherPlayer:SetFlying(false)
+                    if not(OtherPlayer:GetName() == Player:GetName()) then
+                        Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can\'t fly any longer" )
+                    end
+                    OtherPlayer:SendMessageSuccess( "You can\'t fly any longer" )
+                    return true;
                 end
-                OtherPlayer:SendMessageSuccess( "You can fly now" )
-                return true;
             else
-                OtherPlayer:SetCanFly(false)
-                OtherPlayer:SetFlying(false)
-                if not(OtherPlayer:GetName() == Player:GetName()) then
-                Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can\'t fly any longer" )
-                end
-                OtherPlayer:SendMessageSuccess( "You can\'t fly any longer" )
-                return true;
+                Player:SendMessageFailure( "You don\'t have the permission to do that!" )
             end
             if not(foundplayer) then
                 Player:SendMessageFailure( "Player not found!" )
