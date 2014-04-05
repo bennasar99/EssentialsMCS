@@ -11,6 +11,7 @@ function Initialize(Plugin)
 	-- Command Bindings
 	cPluginManager.BindCommand("/heal", "es.heal", EsHandleHealCommand, " ~ Heals a player")
 	cPluginManager.BindCommand("/fly", "es.fly", EsHandleFlyCommand, " ~ allows/disallow a player to fly")
+	cPluginManager.BindCommand("/flyspeed", "es.flyspeed", EsHandleFlyspeedCommand, " ~ allows/disallow a player to fly")
     
 	LOG("Initialised " .. Plugin:GetName() .. " v." .. Plugin:GetVersion())
 	return true

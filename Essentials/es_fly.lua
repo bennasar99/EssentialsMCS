@@ -36,8 +36,12 @@ function EsHandleFlyCommand( Split, Player )
         end
         return true;
     else
+        if Player:HasPermission("es.heal.other") then
         cRoot:Get():FindAndDoWithPlayer(Split[2], HealPlayer);
         return true;
+        else
+            Player:SendMessageFailure("You dont\´t have the permission to do that!")
+        end
     end
     return true
 end
