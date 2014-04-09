@@ -8,10 +8,12 @@ function EsHandleFlyCommand( Split, Player )
                         Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can fly now" )
                     end
                     OtherPlayer:SendMessageSuccess( "You can fly now" )
+                    -- EssenialsDB:exec(sql[UPDATE CanFly SET CanFly = 1 WHERE PlayerName = 'OtherPlayer'])
                     return true;
                 else
                     OtherPlayer:SetCanFly(false)
                     OtherPlayer:SetFlying(false)
+                    -- EssenialsDB:exec(sql[,UPDATE CanFly SET CanFly = 0 WHERE PlayerName = 'OtherPlayer'])
                     if not(OtherPlayer:GetName() == Player:GetName()) then
                         Player:SendMessageSuccess( OtherPlayer:GetName() ..  " can\'t fly any longer" )
                     end
