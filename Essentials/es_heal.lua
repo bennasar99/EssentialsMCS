@@ -18,11 +18,11 @@ function EsHandleHealCommand( Split, Player )
             cRoot:Get():FindAndDoWithPlayer(Split[2], HealPlayer);
             foundplayer = true
         else
-            Player:SendMessageFailure("You dont\´t have the permission to do that!")
+            Player:SendMessageFailure("You dont\Â´t have the permission to do that!")
         end
     else
         Player:Heal(20-Player:GetHealth())
-        Player:Feed((20-Player:GetFoodLevel()), 0))
+        Player:Feed(20-Player:GetFoodLevel(), 0)
         Player:SendMessageSuccess( "You healed yourself!" )
         return true
     end
