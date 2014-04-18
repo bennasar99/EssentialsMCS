@@ -1,7 +1,7 @@
 function EsHandleFlyCommand( Split, Player )
 	local PlayerFly = function(OtherPlayer)
 		if (OtherPlayer:GetName() == Split[2]) then
-            if(Player:HasPermission("es.feed.other")) then
+            if(Player:HasPermission("es.fly.other")) then
             if not(OtherPlayer:CanFly())then
                     OtherPlayer:SetCanFly(true)
                     if not(OtherPlayer:GetName() == Player:GetName()) then
