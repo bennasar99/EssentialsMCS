@@ -14,6 +14,7 @@ function Initialize(Plugin)
 	cPluginManager.BindCommand("/feed", "es.feed", EsHandleFeedCommand, " ~ feed a player")
 	cPluginManager.BindCommand("/flyspeed", "es.speed.fly", EsHandleFlyspeedCommand, " ~ allows/disallow a player to fly")
 	cPluginManager.BindCommand("/heal", "es.heal", EsHandleHealCommand, " ~ heal a player")
+	cPluginManager.BindCommand("/vanish", "es.vanish", EsHandleVanishCommand, " ~ hide a player")
 	-- cPluginManager.BindCommand("/repair", "es.repair", EsHandleRepairCommand, " ~ repair a tool") not working
     
 	EssenialsDB = sqlite3.open('Essentials.sqllite3')
